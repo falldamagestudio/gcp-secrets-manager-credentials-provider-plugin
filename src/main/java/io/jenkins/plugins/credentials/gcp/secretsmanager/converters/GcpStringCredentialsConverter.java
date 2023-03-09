@@ -1,6 +1,6 @@
 package io.jenkins.plugins.credentials.gcp.secretsmanager.converters;
 
-import com.cloudbees.plugins.credentials.impl.BaseStandardCredentials;
+import com.cloudbees.plugins.credentials.common.StandardCredentials;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.CredentialsFactory.SecretSupplier;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.GcpCredentialsConverter;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.GcpStringCredentials;
@@ -18,7 +18,7 @@ public class GcpStringCredentialsConverter extends GcpCredentialsConverter {
   }
 
   @Override
-  public BaseStandardCredentials resolve(
+  public StandardCredentials resolve(
       String name, String description, Map<String, String> labels, SecretGetter secretGetter) {
     return new GcpStringCredentials(name, description, new SecretSupplier(name, secretGetter));
   }
