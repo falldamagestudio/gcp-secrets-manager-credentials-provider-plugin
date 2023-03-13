@@ -5,7 +5,6 @@ import com.cloudbees.plugins.credentials.SecretBytes;
 import com.google.jenkins.plugins.credentials.oauth.GoogleRobotPrivateKeyCredentials;
 import com.google.jenkins.plugins.credentials.oauth.JsonServiceAccountConfig;
 import com.google.jenkins.plugins.credentials.oauth.ServiceAccountConfig;
-import io.jenkins.plugins.credentials.gcp.secretsmanager.CredentialsFactory.SecretSupplier;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.GcpCredentialsConverter;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.Labels;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.SecretGetter;
