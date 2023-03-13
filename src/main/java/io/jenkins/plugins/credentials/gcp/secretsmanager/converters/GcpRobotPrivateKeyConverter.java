@@ -10,6 +10,7 @@ import io.jenkins.plugins.credentials.gcp.secretsmanager.GcpCredentialsConverter
 import io.jenkins.plugins.credentials.gcp.secretsmanager.Labels;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.SecretGetter;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.Type;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class GcpRobotPrivateKeyConverter extends GcpCredentialsConverter {
 
     // Encode secret JSON key in the encoding expected by SecretBytes
     //   (see SecretBytes.toString() for implicit format specification)
-    final String secretJsonKeyAsSecretBytesString = "{" + Base64.encodeBase64String(secretJsonKeyAsPlainText.getBytes()) + "}";
+    final String secretJsonKeyAsSecretBytesString = "{" + Base64.encodeBase64String(secretJsonKeyAsPlainText.getBytes(StandardCharsets.UTF_8)) + "}";
     final SecretBytes secretJsonKeyAsSecretBytes = SecretBytes.fromString(secretJsonKeyAsSecretBytesString);
     jsonServiceAccountConfig.setSecretJsonKey(secretJsonKeyAsSecretBytes);
 
