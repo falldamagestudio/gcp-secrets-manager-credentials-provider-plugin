@@ -15,10 +15,50 @@ gcloud services enable secretmanager.googleapis.com --project=my-project
 Follow the [documentation](https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets#secretmanager-create-secret-cli) for 
 creating and updating secrets.
 
-## Usage
+## Configuration
 
-To enable the plugin, go to "Configure System" and find the "GCP Secrets Manager" section.
+### Configure via UI
+
+Go to "Configure System" and find the "GCP Secrets Manager" section.
 Input the name of the GCP projects that contain the secrets.
+
+### Configure via JCasC
+
+You can use [JCasC](https://www.jenkins.io/projects/jcasc/) to set the GCP project and label filters.
+
+```yaml
+unclassified:
+  gcpCredentialsProvider:
+    serverSideFilter: "labels.foo:bar OR labels.foo:baz"
+    filter:
+      label: "my-label"
+      value: "my-value-1,my-value-2"
+    project: "my-gcp-project1,my-gcp-project2"
+```
+
+### Confugure via system properties
+
+You can use Java's System Properties for the various settings:
+
+```
+-Djenkins.gcp-secrets-manager.project=my-gcp-project1,my-gcp-project2
+-Djenkins.gcp-secrets-manager.filter.label=my-label
+-Djenkins.gcp-secrets-manager.filter.value=my-value-1,my-value-2
+-Djenkins.gcp-secrets-manager.server-side-filter=labels.foo:bar OR labels.foo:baz
+```
+
+### Configure via environment variables
+
+Provide environment variables for the various settings:
+
+```
+GCP_SECRETS_MANAGER_PROJECT=my-gcp-project1,my-gcp-project2
+GCP_SECRETS_MANAGER_FILTER_LABEL=my-label
+GCP_SECRETS_MANAGER_FILTER_VALUE=my-value-1,my-value-2
+GCP_SECRETS_MANAGER_SERVER_SIDE_FILTER=labels.foo:bar OR labels.foo:baz
+```
+
+## Usage
 
 Secret names (not values) are cached in-memory for 5 minutes. This is not currently configurable.
 
@@ -116,21 +156,6 @@ secret must have in order to be added to the store. Note that Jenkins will still
 
 You can use a comma-separated string for the label value, which will tell Jenkins to add the secret to the store
 if it matches any of the provided values.
-
-
-### JCasC
-
-You can use [JCasC](https://www.jenkins.io/projects/jcasc/) to set the GCP project and label filters.
-
-```yaml
-unclassified:
-  gcpCredentialsProvider:
-    serverSideFilter: "labels.foo:bar OR labels.foo:baz"
-    filter:
-      label: "my-label"
-      value: "my-value-1,my-value-2"
-    project: "my-gcp-project1,my-gcp-project2"
-```
 
 ## Examples
 
