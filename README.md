@@ -2,7 +2,7 @@
 
 [![GCP Secrets Manager Credentials Provider Plugin](https://img.shields.io/jenkins/plugin/v/gcp-secrets-manager-credentials-provider?style=flat-square)](https://plugins.jenkins.io/gcp-secrets-manager-credentials-provider/)
 
-Access credentials from [Google Cloud Secrets Manager](https://cloud.google.com/secret-manager) in your Jenkins jobs.
+Access credentials from [Google Cloud Secrets Manager](https://cloud.google.com/secret-manager) in your Jenkins jobs and your Configuration as Code files.
 
 ## Setup
 
@@ -156,6 +156,10 @@ secret must have in order to be added to the store. Note that Jenkins will still
 
 You can use a comma-separated string for the label value, which will tell Jenkins to add the secret to the store
 if it matches any of the provided values.
+
+## Secret Source
+
+Secrets of type `string` are available for string interpolation within JCasC YAML files. Use `${SECRETNAME}` within a string in a YAML file to get the value of the corresponding secret. See [the Secret Source documentation of JCasC](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/secrets.adoc#secret-sources) for more information.
 
 ## Examples
 
