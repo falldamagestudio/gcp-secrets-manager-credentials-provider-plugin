@@ -163,6 +163,8 @@ if it matches any of the provided values.
 
 Secrets of type `string` are available for string interpolation within JCasC YAML files. Use `${SECRETNAME}` within a string in a YAML file to get the value of the corresponding secret. See [the Secret Source documentation of JCasC](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/secrets.adoc#secret-sources) for more information.
 
+Secrets of type `string` are available for string interpolation within JCasC YAML files. Use `${SECRETNAME}` within a string in a YAML file to get the value of the corresponding secret. See [the Secret Source documentation of JCasC](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/secrets.adoc#secret-sources) for more information.
+
 ## Examples
 
 ### Secret Text

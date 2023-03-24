@@ -6,4 +6,5 @@ public class Labels {
   public static final String FILENAME = "jenkins-credentials-filename";
   public static final String FILE_EXTENSION = "jenkins-credentials-file-extension";
   public static final String USERNAME = "jenkins-credentials-username";
+  public static final String PROJECT_ID = "jenkins-credentials-project-id";
 }

@@ -1,6 +1,6 @@
 package io.jenkins.plugins.credentials.gcp.secretsmanager.converters;
 
-import com.cloudbees.plugins.credentials.impl.BaseStandardCredentials;
+import com.cloudbees.plugins.credentials.common.StandardCredentials;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.CredentialsFactory.SecretBytesSupplier;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.GcpCredentialsConverter;
 import io.jenkins.plugins.credentials.gcp.secretsmanager.GcpFileCredentials;
@@ -19,7 +19,7 @@ public class GcpFileCredentialsConverter extends GcpCredentialsConverter {
   }
 
   @Override
-  public BaseStandardCredentials resolve(
+  public StandardCredentials resolve(
       String name, String description, Map<String, String> labels, SecretGetter secretGetter) {
     final String fileExtension = labels.getOrDefault(Labels.FILE_EXTENSION, "");
     String filename = labels.getOrDefault(Labels.FILENAME, "");

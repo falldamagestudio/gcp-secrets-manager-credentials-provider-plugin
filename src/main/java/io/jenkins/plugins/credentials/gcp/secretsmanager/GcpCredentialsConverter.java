@@ -1,6 +1,6 @@
 package io.jenkins.plugins.credentials.gcp.secretsmanager;
 
-import com.cloudbees.plugins.credentials.impl.BaseStandardCredentials;
+import com.cloudbees.plugins.credentials.common.StandardCredentials;
 import edu.umd.cs.findbugs.annotations.CheckForNull;
 import hudson.ExtensionList;
 import hudson.ExtensionPoint;
@@ -10,7 +10,7 @@ public abstract class GcpCredentialsConverter implements ExtensionPoint {
 
   public abstract boolean canResolve(String type);
 
-  public abstract BaseStandardCredentials resolve(
+  public abstract StandardCredentials resolve(
       String name, String description, Map<String, String> labels, SecretGetter secretGetter);
 
   public static final ExtensionList<GcpCredentialsConverter> all() {
