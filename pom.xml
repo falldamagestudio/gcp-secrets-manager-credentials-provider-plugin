@@ -146,7 +146,8 @@
                 <artifactId>maven-hpi-plugin</artifactId>
                 <configuration>
                     <maskClasses>
-                        com.google.common.
+                        <!-- After introducing the google-oauth-plugin dependency, we need these classes -->
+                        <!-- com.google.common. -->
                         com.google.protobuf.
                     </maskClasses>
                     <minimumJavaVersion />
